@@ -32,17 +32,17 @@
       "rich":{
          
       },
-      "meta":{
-         "emotes":[
+      "meta": {
+         "emotes": [
             
          ],
-         "mentions":[
+         "mentions": [
             
          ],
-         "links":[
+         "links": [
             
          ],
-         "attachements":[
+         "attachements": [
             
          ]
       }
