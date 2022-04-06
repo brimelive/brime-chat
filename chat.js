@@ -1,7 +1,12 @@
 const mqtt = require('mqtt')
 const connectUrl = `wss://chat.brime.tv/ws`
 const channel = '1FfzbPSZsWkSfH8cGKbZ' // XID of the channel you wish to join
-const chatLang = 'en-us'
+const chatLang = 'en-us' // Language of the chat.
+// Brime Chat features native chat translation. 
+// So you'll need to connect to the room in the language you want to receive messages in. 
+// You can obtain the language code from here: https://brime.readme.io/reference/update-user-chat-language
+// Make sure to use the lowercase version of the language code.
+
 
 // Test Creds -- this is a working example. 
 // For a real user, you'll need to obtain a JWT token for that user and replace the password.
