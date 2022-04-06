@@ -1,14 +1,13 @@
 const mqtt = require('mqtt')
 const connectUrl = `wss://chat.brime.tv/ws`
-const channel = {
-    xid: '1FfzbPSZsWkSfH8cGKbZ',
-    slug: 'geekendev'
-}
+const channel = '1FfzbPSZsWkSfH8cGKbZ' // XID of the channel you wish to join
 const chatLang = 'en-us'
 
-// Test Creds
-const username = 'uPt0y2GrNzZsA1zFHuX9'
-const password = 'uPt0y2GrNzZsA1zFHuX9'
+// Test Creds -- this is a working example. 
+// For a real user, you'll need to obtain a JWT token for that user and replace the password.
+
+const username = 'uPt0y2GrNzZsA1zFHuX9' // XID of the user connecting to the chat service
+const password = 'uPt0y2GrNzZsA1zFHuX9' // JWT token of the user
 
 this.client = mqtt.connect(connectUrl, {
     username,
@@ -21,22 +20,22 @@ this.client = mqtt.connect(connectUrl, {
 
 this.client.on('connect', () => {
     // Listen for chat messages on a specific language
-    this.client.subscribe(`channel/chat/receive/${channel.xid}/${chatLang}`, err => {
+    this.client.subscribe(`channel/chat/receive/${channel}/${chatLang}`, err => {
         if (err) console.error(err)
     })
-    
+
     // Listen for all chat messages (all langs)
-    // this.client.subscribe(`channel/chat/receive/${channel.xid}`, err => {
+    // this.client.subscribe(`channel/chat/receive/${channel}`, err => {
     //  if (err) console.error(err)
     // })
 
     // Listen for platform channel messages
-    this.client.subscribe(`channel/${channel.xid}`, err => {
+    this.client.subscribe(`channel/${channel}`, err => {
         if (err) console.error(err)
     })
 
     // Listen for platform messages directed to the user
-    this.client.subscribe(`private/${channel.xid}`, err => {
+    this.client.subscribe(`private/${channel}`, err => {
         if (err) console.error(err)
     })
 })
@@ -64,8 +63,8 @@ const msg = {
 }
 
 // Publish the message
-this.client.publish(`channel/chat/send/${channel.xid}`, Buffer.from(JSON.stringify(msg)))
+this.client.publish(`channel/chat/send/${channel}`, Buffer.from(JSON.stringify(msg)))
 //
 // this.client.publish('topic', 'message')
-// Topic: should be set to channel/chat/send/channel.xid
+// Topic: should be set to channel/chat/send/{channel}
 // Message: should be a JSON string of the message object or a buffer of the stringified message object
