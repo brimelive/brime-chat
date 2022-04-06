@@ -3,7 +3,7 @@
 1. Clone the repo
 2. `npm install`
 3. `node chat.js`
-4. Review the example client code in /chat.js
+4. Review the example client code in ```/chat.js``
 
 ### Example message that you receive
 ```JSON
