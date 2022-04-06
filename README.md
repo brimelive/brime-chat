@@ -4,8 +4,8 @@
 2. `npm install`
 3. `node chat.js`
 
-
-```json
+### Example message that you receive
+```javascript
 {
   xid: 'Kw0LjL04MdiGSzk1Jq9a',
   linked_xid: 'aHH0vUq23U3CmJjfxstk',
